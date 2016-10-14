@@ -1,0 +1,9 @@
+<?php
+require_once('./conv.php');
+$data=array(
+    'id'=>1,
+    'name'=>'singwa',
+    'type'=>array(4,5,6),
+    'test'=>array(1,45,67=>array(123,'tsysa'))
+);
+$result=response::show(200,'success',$data,'xml');
