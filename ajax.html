@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<hr>ajax-get:[url 回调函数 数据格式]<br>
+
+<!-- 	<textarea name="" id="content" cols="30" rows='10'></textarea><br>
+	 请输入姓名:<input type="text" id='test' name="test">
+	 <button id="buttonget" ">点击测试</button>
+	<script>
+	$('#button').click(
+		function (){
+			var url='ajax.php';
+			$.get(
+				url,
+				function(response){
+					console.log(response);
+					$('#contentget').text(response.user+':'+ response.gender);
+				},'json')
+		});
+	</script> -->
+
+<hr>ajax-post:[url post数据 回调函数 数据格式]<br>
+<!-- 	<form action="" id="register">
+	User:<input type="text" name="user"><br>
+	Email:<input type="text" name="email"><br>
+	<input type="submit">
+	</form>
+	<button id="buttonpost">post按钮</button>
+	<script>
+	$(function(){
+		$('#buttonpost').click(
+			function(){
+				var url="ajax.php";
+				var data=$('#register');
+				console.log(data);
+				data = data.serialize();
+				console.log(data);
+				$.post(
+					url,
+					data,//序列化操作
+					function(response){
+						if(response.error == 0){
+							alert('姓名'+response.user +' '+'性别'+ response.gender);
+						}else{
+							alert('失败');
+						}
+					},
+					'json'
+				);
+			}
+		)
+	})
+	</script> -->
+
+<hr>ajax-post:[url 类型 数据 回调函数 数据格式]<br>
+
+<textarea name="" id="content-u" cols="30" rows="3"></textarea><br>
+<button id="button-universal">通用的发出ajax请求获取内容</button>
+
+<script>
+
+$(function(){
+	$('#button-universal').click(function(){
+		var url="ajax.php";
+		$.ajax({
+			url,
+			type:'get',
+			data:{},
+			success:function(response){
+				console.log(typeof response,response);
+				$('#content-u').text(response.user+':'+response.gender);
+				alert(response.user+' '+response.gender);
+			},dataType:'json'
+		});
+	})
+})
+
+</script>
+</body>
+</html>
+
+<!-- ajax.php页面内容如下
+<?php
+echo json_encode(['user'=>'yang','gender'=>'male','error'=>'0','sucess'=>'200']); -->
