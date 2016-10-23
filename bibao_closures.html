@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包解决</title>
+</head>
+<body>
+<script>
+	//闭包的解决
+	(function(){
+		alert("杨明超");
+	})();
+    //同时传参数的例子
+    (function(v){
+        alert('anonymous ' + v);
+    })('test');
+
+</script>
+</body>
+</html>
